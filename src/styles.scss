@@ -1,0 +1,228 @@
+@mixin cta-style {
+  background-position: 0% 100%;
+  border: none;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  height: 42px;
+  width: 176px;
+}
+
+body {
+  background-color: black;
+  font-family: sans-serif;
+}
+.page-container{
+  margin-left:auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+.giphy-searcher-container{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  text-align: center;
+  width: 100%;
+  .g-title{
+    color: #ffffff;
+    width: 100%;
+  }
+  .g-input{
+    height: 42px;    
+    width: 100%;
+    input{
+      border: none;
+      border-radius: 3px;
+      font-size: 16px;
+      height: 100%;
+      padding: 0 20px;
+      width: 60%;
+      &:focus{
+        outline: none;
+      }
+    }
+    button{
+      @include cta-style();
+      background: linear-gradient(to right, 
+      rgb(49, 145, 255), 
+      rgb(0, 230, 204), 
+      rgb(49, 145, 255)) 
+      0% 100% / 300%;
+      width: 45px;
+    }
+  }
+  .fav-gifs-cta{
+    margin-top: 30px;
+    button{
+      @include cta-style();
+      background: linear-gradient(to right, 
+      rgb(255, 49, 128), 
+      rgb(214, 88, 214), 
+      rgb(131, 5, 248)) 
+      0% 100% / 300%;
+    }
+  }
+}
+#gifsSection{
+  margin-bottom: 40px;
+  margin-top: 40px;
+  .deleButton{
+    @include cta-style();
+    background: linear-gradient(to right, 
+      rgb(255, 49, 49), 
+      rgb(214, 88, 105), 
+      rgb(238, 132, 206))
+       0% 100% / 300%;
+    display:block;
+    height: 42px;
+  }
+  .userMessage{
+    color: white;
+    text-align:center;
+  }
+  .oops-gif{
+    display: block;
+    margin: 50px auto 30px;
+    width: 200px;
+  }
+  .gifsGrid{
+    align-items: stretch;
+    display: grid;
+    justify-content: space-between;
+    grid-gap: 1rem 2rem;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-template-rows: auto;
+    margin-top: 40px;
+    .gif-grid-item{
+      justify-self: center;
+      position: relative;
+      width: 100%;
+      .gif-thumbnail{
+        background-color: rgb(54, 148, 117);
+        cursor: pointer;
+        max-height: 250px;      
+        min-height: 180px;
+        width: 100%;
+      }
+      .gif-fav-icon{
+        color: white;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 5px;
+        position: absolute;
+        right: 0;
+        &.heart-filled, &:hover{
+          color: red;
+        }
+      }
+    }
+  }
+}
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-img-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    img{
+      border-radius: 10px;
+      box-shadow: 0px 3px 8px #00000033;
+      display: block;
+      margin: 0 auto;
+      min-width: 250px;
+      width: 30%;
+    }
+    p{
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px){
+  .page-container{
+    max-width: 992px;
+  }
+}
+@media screen and (max-width: 1024px){
+  .page-container{
+    max-width: 768px
+  }
+  #gifsSection .gifsGrid{
+      grid-template-columns:  repeat(auto-fill, 220px);
+  }
+}
+@media screen and (max-width: 576px) {
+  .page-container{
+    max-width: 490px;
+  }
+  #gifsSection{
+    margin-top: 20px;
+    button{
+      margin: auto;
+    }
+    .gifsGrid{
+      justify-content: center;
+      grid-template-columns:  repeat(auto-fill, 170px);
+      .gif-grid-item .gif-thumbnail{
+        min-height: 150px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 375px){
+	.giphy-searcher-container {
+    .g-input{
+      height: auto;
+      input, button {
+        height: 42px;
+        width:136px;
+      }
+		  button{
+        margin-top: 20px;
+			  width:176px;
+		  }
+    }
+    .fav-gifs-cta{
+      margin-top: 20px;
+    }
+  }
+}

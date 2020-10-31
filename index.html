@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giphy Client | Giphy API</title>
+    <meta charset="UTF-8" />
+    <script src="src/index.js"></script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <div class="page-container">
+
+      <section class="giphy-searcher-container">
+        <h1 class="g-title">
+          Giphy Client
+          <i class="far fa-heart"></i>
+        </h1>
+        <div class="g-input">
+          <input id="giphySearch" />
+          <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="fav-gifs-cta">
+          <button id="favButton">
+            My <i class="fas fa-heart"></i> Gifs
+          </button>
+        <div>
+      </section>
+
+      <section id="gifsSection">
+        <div  id="gifsResults" class="gifsGrid"></div>
+      </section>
+
+      <!-- Modal content -->
+      <div id="gif-modal" class="modal">
+        <div class="modal-content" id="modal-content">
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
